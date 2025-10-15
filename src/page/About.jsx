@@ -21,7 +21,7 @@ function About() {
 
   // Consistent padding pattern
   const cardPadding = isMobile ? "25px 15px" : "40px";
-  const sectionPadding = isMobile ? "40px 0" : "100px 0";
+  const sectionPadding = isMobile ? "162px 0" : "100px 0";
   const containerPadding = isMobile ? "0 20px" : "0 40px";
 
   const fadeInUp = {
@@ -35,7 +35,7 @@ function About() {
   };
 
   const sectionStyle = {
-    padding: "120px 20px",
+    padding: sectionPadding,
     backgroundColor: "#67162e",
     backgroundImage: `url(${ExperienceCassiaBg})`,
     backgroundSize: 'cover',
@@ -390,10 +390,11 @@ function About() {
             <h3
               style={{
                 fontFamily: "Mondia, serif",
-                fontSize: isMobile ? "28px" : "36px",
-                marginBottom: "20px",
+                fontSize: isMobile ? "24px" : "36px",
+                marginBottom: isMobile ? "16px" : "20px",
                 color: "#f4e2b4",
                 lineHeight: "1.2",
+                textAlign: isMobile ? "center" : "left",
               }}
             >
               Our Banquet Hall
@@ -402,7 +403,7 @@ function About() {
             {/* Banquet Hall Image */}
             <div style={{
               position: "relative",
-              marginBottom: "30px",
+              marginBottom: isMobile ? "20px" : "30px",
               borderRadius: "15px",
               overflow: "hidden",
               width: "100%",
@@ -413,7 +414,7 @@ function About() {
                 alt="Our Banquet Hall" 
                 style={{
                   width: "100%",
-                  height: "300px",
+                  height: isMobile ? "200px" : "300px",
                   objectFit: "cover",
                   display: "block"
                 }}
@@ -433,11 +434,12 @@ function About() {
             <p
               style={{
                 fontFamily: "JustSans, sans-serif",
-                fontSize: isMobile ? "16px" : "18px",
-                lineHeight: "1.6",
+                fontSize: isMobile ? "15px" : "18px",
+                lineHeight: isMobile ? "1.6" : "1.7",
                 color: "#f4e2b4",
-                margin: "0",
-                opacity: 0.9,
+                margin: 0,
+                opacity: 0.95,
+                textAlign: isMobile ? "center" : "left",
               }}
             >
               Host your special moments in our elegant indoor banquet hall,
