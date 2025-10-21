@@ -88,7 +88,7 @@ function About() {
   };
 
   const goToMenu = () => {
-    // Force page refresh to reset scroll position
+    // Force page refresh to reset all state
     window.location.href = '/Menu';
   };
 

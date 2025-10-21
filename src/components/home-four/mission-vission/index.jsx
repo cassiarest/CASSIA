@@ -59,10 +59,12 @@ function MissionVision() {
 	}, []);
 
 	const scrollToServices = () => {
+		// Force page refresh to reset all state
 		window.location.href = '/Menu?service=catering';
 	};
 
 	const scrollToRestaurants = () => {
+		// Force page refresh to reset all state
 		window.location.href = '/Menu?service=restaurant';
 	};
 
@@ -306,7 +308,7 @@ function MissionVision() {
 						>
 							<button
 								onClick={() => {
-									// Force page refresh to reset scroll position
+									// Force page refresh to reset all state
 									window.location.href = '/Menu';
 								}}
 								style={{
