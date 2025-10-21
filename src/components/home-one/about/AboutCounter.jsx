@@ -1,14 +1,45 @@
 import CountUp from "react-countup";
+import { useState, useEffect, useRef } from "react";
 
 function AboutCounter() {
+	const [isVisible, setIsVisible] = useState(false);
+	const counterRef = useRef(null);
+
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					setIsVisible(true);
+				}
+			},
+			{ threshold: 0.3 }
+		);
+
+		if (counterRef.current) {
+			observer.observe(counterRef.current);
+		}
+
+		return () => {
+			if (counterRef.current) {
+				observer.unobserve(counterRef.current);
+			}
+		};
+	}, []);
+
 	return (
-		<div style={{
-			// background: "#ffffff",
-			borderRadius: "30px",
-        paddingTop: "80px",
-			height: "100%",
-			// boxShadow: "0 20px 40px rgba(103, 22, 46, 0.1)"
-		}}>
+		<div 
+			ref={counterRef}
+			style={{
+				// background: "#ffffff",
+				borderRadius: "30px",
+				paddingTop: "80px",
+				height: "100%",
+				opacity: isVisible ? 1 : 0,
+				transform: isVisible ? "translateY(0)" : "translateY(20px)",
+				transition: "opacity 0.8s ease, transform 0.8s ease",
+				// boxShadow: "0 20px 40px rgba(103, 22, 46, 0.1)"
+			}}
+		>
 			<div style={{
 				display: "flex",
 				flexDirection: "column",
@@ -22,7 +53,7 @@ function AboutCounter() {
 						fontSize: "48px",
 						marginBottom: "10px"
 					}}>
-						<CountUp end={30} duration={3} redraw={true} enableScrollSpy />+
+						{isVisible && <CountUp end={30} duration={2.5} />}+
 					</h2>
 					<p style={{
 						color: "#67162e",
@@ -40,7 +71,7 @@ function AboutCounter() {
 						fontSize: "48px",
 						marginBottom: "10px"
 					}}>
-						<CountUp end={500} duration={3} redraw={true} enableScrollSpy />+
+						{isVisible && <CountUp end={500} duration={2.5} delay={0.2} />}+
 					</h2>
 					<p style={{
 						color: "#67162e",
@@ -58,7 +89,7 @@ function AboutCounter() {
 						fontSize: "48px",
 						marginBottom: "10px"
 					}}>
-						<CountUp end={100} duration={3} redraw={true} enableScrollSpy />%
+						{isVisible && <CountUp end={100} duration={2.5} delay={0.4} />}%
 					</h2>
 					<p style={{
 						color: "#67162e",
@@ -76,7 +107,7 @@ function AboutCounter() {
 						fontSize: "48px",
 						marginBottom: "10px"
 					}}>
-						<CountUp end={1500} duration={3} redraw={true} enableScrollSpy />+
+						{isVisible && <CountUp end={1500} duration={2.5} delay={0.6} />}+
 					</h2>
 					<p style={{
 						color: "#67162e",

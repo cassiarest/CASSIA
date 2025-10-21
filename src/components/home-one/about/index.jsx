@@ -180,15 +180,9 @@ function About() {
 					</div>
 
 					{/* Counter on right (landscape), below on mobile */}
-					<motion.div
-						initial={{ opacity: 0, x: 20 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.6, delay: 0.4 }}
-						style={{ ...counterCardStyle, gridColumn: isMobile ? "auto" : "2 / 3" }}
-					>
+					<div style={{ ...counterCardStyle, gridColumn: isMobile ? "auto" : "2 / 3" }}>
 						<AboutCounter />
-					</motion.div>
+					</div>
 				</div>
 			</div>
 		</div>
