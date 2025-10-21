@@ -26,16 +26,25 @@ function HeaderButton() {
 		};
 
 		const handleScroll = () => {
-			const scrollTop = window.scrollY;
-			setIsScrolled(scrollTop > 50);
+			const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+			const scrolled = scrollTop > 100;
+			setIsScrolled(scrolled);
 		};
 
 		handleResize();
+		handleScroll(); // Check initial scroll position
+
+		// Add scroll listeners to multiple elements for better compatibility
 		window.addEventListener('resize', handleResize);
-		window.addEventListener('scroll', handleScroll);
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		document.addEventListener('scroll', handleScroll, { passive: true });
+		document.body.addEventListener('scroll', handleScroll, { passive: true });
+
 		return () => {
 			window.removeEventListener('resize', handleResize);
 			window.removeEventListener('scroll', handleScroll);
+			document.removeEventListener('scroll', handleScroll);
+			document.body.removeEventListener('scroll', handleScroll);
 		};
 	}, []);
 
@@ -68,26 +77,33 @@ function HeaderButton() {
 					border: isScrolled ? "2px solid #67162e" : "2px solid #ffffff",
 					cursor: "pointer",
 					whiteSpace: "nowrap",
-					transition: "all 0.3s ease",
+					transition: "all 0.4s ease",
 					outline: "none",
 					display: "flex",
 					alignItems: "center",
-					justifyContent: "center"
+					justifyContent: "center",
+					boxShadow: isScrolled ? "0 4px 15px rgba(103, 22, 46, 0.3)" : "none"
 				}}
 				onMouseEnter={(e) => {
 					if (isScrolled) {
-						e.target.style.backgroundColor = "#8b1e3f";
-						e.target.style.borderColor = "#8b1e3f";
+						e.target.style.backgroundColor = "#8b1e3a";
+						e.target.style.borderColor = "#8b1e3a";
+						e.target.style.transform = "translateY(-2px)";
+						e.target.style.boxShadow = "0 6px 20px rgba(103, 22, 46, 0.4)";
 					} else {
-						e.target.style.backgroundColor = "#ffffff";
+						e.target.style.backgroundColor = "#f4e2b4";
 						e.target.style.color = "#67162e";
-						e.target.style.borderColor = "#ffffff";
+						e.target.style.borderColor = "#f4e2b4";
+						e.target.style.transform = "translateY(-2px)";
+						e.target.style.boxShadow = "0 6px 20px rgba(244, 226, 180, 0.3)";
 					}
 				}}
 				onMouseLeave={(e) => {
 					e.target.style.backgroundColor = isScrolled ? "#67162e" : "transparent";
 					e.target.style.color = isScrolled ? "#f4e2b4" : "#ffffff";
 					e.target.style.borderColor = isScrolled ? "#67162e" : "#ffffff";
+					e.target.style.transform = "translateY(0)";
+					e.target.style.boxShadow = isScrolled ? "0 4px 15px rgba(103, 22, 46, 0.3)" : "none";
 				}}
 			>
 				{/* <img src={BargerMenuImg} alt="BargerMenuImg" /> */}

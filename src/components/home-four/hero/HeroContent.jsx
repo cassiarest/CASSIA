@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../../../assets/images/logo/cassia-logo-red (1).png";
 import { FadeInStaggerTwo, FadeInStaggerTwoChildren } from "../../animation/FadeInStaggerTwo";
 import { useEffect, useState } from "react";
@@ -13,8 +13,6 @@ function HeroContent() {
 	});
 
 	const [hoveredButton, setHoveredButton] = useState(null);
-
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -51,7 +49,8 @@ function HeroContent() {
 	}, []);
 
 	const handleViewMenu = () => {
-		navigate('/Menu');
+		// Force page refresh to reset scroll position
+		window.location.href = '/Menu';
 	};
 
 	const handleShare = () => {

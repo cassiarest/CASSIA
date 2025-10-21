@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 import pill1 from "../../../assets/images/about/about us images-02.png";
 import pill2 from "../../../assets/images/about/about us images-03.png";
 import pill3 from "../../../assets/images/about/about us images-04.png";
@@ -18,7 +17,6 @@ function MissionVision() {
 	const [imagesInView, setImagesInView] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
 
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -61,11 +59,11 @@ function MissionVision() {
 	}, []);
 
 	const scrollToServices = () => {
-		navigate('/Menu?service=catering');
+		window.location.href = '/Menu?service=catering';
 	};
 
 	const scrollToRestaurants = () => {
-		navigate('/Menu?service=restaurant');
+		window.location.href = '/Menu?service=restaurant';
 	};
 
 	return (
@@ -307,7 +305,10 @@ function MissionVision() {
 							style={{ display: "flex", justifyContent: "center", marginTop: window.innerWidth <= 480 ? "20px" : "30px" }}
 						>
 							<button
-								onClick={() => navigate('/Menu')}
+								onClick={() => {
+									// Force page refresh to reset scroll position
+									window.location.href = '/Menu';
+								}}
 								style={{
 									backgroundColor: "#67162e",
 									color: "#ffffff",

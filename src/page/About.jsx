@@ -6,6 +6,7 @@ import BanquetHallBg from '../assets/images/logo/banquet hall.png';
 function About() {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -14,15 +15,33 @@ function About() {
       setIsTablet(width > 768 && width <= 1024);
     };
 
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      const scrolled = scrollTop > 100;
+      setIsScrolled(scrolled);
+    };
+
     checkScreenSize();
+    handleScroll(); // Check initial scroll position
+
+    // Add scroll listeners to multiple elements for better compatibility
     window.addEventListener("resize", checkScreenSize);
-    return () => window.removeEventListener("resize", checkScreenSize);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    document.addEventListener("scroll", handleScroll, { passive: true });
+    document.body.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("scroll", handleScroll);
+      document.body.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   // Consistent padding pattern
-  const cardPadding = isMobile ? "25px 15px" : "40px";
-  const sectionPadding = isMobile ? "162px 0" : "100px 0";
-  const containerPadding = isMobile ? "0 20px" : "0 40px";
+  const cardPadding = isMobile ? "15px 10px" : "40px";
+  const sectionPadding = isMobile ? "100px 0" : "100px 0";
+  const containerPadding = isMobile ? "0 10px" : "0 40px";
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -46,6 +65,9 @@ function About() {
     height: "100vh",
     margin: "0",
     boxSizing: "border-box",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   };
 
   const containerStyle = {
@@ -65,83 +87,64 @@ function About() {
     marginBottom: isMobile ? "15px" : "25px",
   };
 
+  const goToMenu = () => {
+    // Force page refresh to reset scroll position
+    window.location.href = '/Menu';
+  };
+
   return (
     <>
       <div style={sectionStyle}>
         <div style={containerStyle}>
         {/* Header Section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          style={{
-            marginBottom: isMobile ? "40px" : "60px",
-            textAlign: "center",
-          }}
-        >
-          <motion.div
-            variants={fadeInUp}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: isMobile ? "15px" : "30px",
-              flexDirection: isMobile ? "column" : "row",
-              marginBottom: isMobile ? "30px" : "40px",
-            }}
-          >
-            <motion.span
-              variants={textReveal}
-              style={{
-                fontFamily: "Mondia, sans-serif",
-                fontSize: isMobile ? "40px" : "64px",
-                color: "#f4e2b4",
-                lineHeight: isMobile ? "1.2" : "1.3",
-                margin: "0",
-                padding: "0",
-                textAlign: "center",
-                fontWeight: "700",
-                letterSpacing: "1px",
-              }}
-            >
-              Experience Cassia
-            </motion.span>
-
-            {/* <motion.div
-              variants={textReveal}
-              style={{
-                width: isMobile ? "80px" : "2px",
-                height: isMobile ? "2px" : "60px",
-                background: isMobile
-                  ? "linear-gradient(to right, #f4e2b4 0%, rgba(244, 226, 180, 0.3) 100%)"
-                  : "linear-gradient(to bottom, #f4e2b4 0%, rgba(244, 226, 180, 0.3) 100%)",
-                margin: "0 auto",
-                borderRadius: "2px",
-              }}
-            /> */}
-          </motion.div>
-
-          <motion.p
-            variants={textReveal}
-            style={{
-              fontFamily: "JustSans, sans-serif",
-              fontSize: isMobile ? "18px" : "20px",
-              lineHeight: isMobile ? "1.7" : "1.8",
-              color: "#f4e2b4",
-              maxWidth: "900px",
-              margin: "0 auto",
+        <div style={{
+          marginBottom: isMobile ? "30px" : "54px",
+          marginTop: isMobile ? "200px" : "329px",
+          textAlign: "center"
+        }}>
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: isMobile ? "15px" : "30px",
+            flexDirection: isMobile ? "column" : "row",
+            marginBottom: isMobile ? "20px" : "40px",
+            opacity: 1,
+            transform: "none"
+          }}>
+            <span style={{
+              fontFamily: "Mondia, sans-serif",
+              fontSize: isMobile ? "40px" : "64px",
+              color: "rgb(244, 226, 180)",
+              lineHeight: isMobile ? "1.2" : "1.3",
+              margin: "0px",
+              padding: "0px",
               textAlign: "center",
-              fontWeight: "400",
-              letterSpacing: "0.3px",
-              opacity: 0.95,
-            }}
-          >
-            Our premium restaurant experience with our selected menu of 120
-            well-curated dishes takes your culinary experience to the next level
-            with an elevated dine-in experience for up to 100 people at a time,
-            serving multiple cuisines like Indian, Arab, and Chinese.
-          </motion.p>
-        </motion.div>
+              fontWeight: "700",
+              letterSpacing: "1px",
+              opacity: 1,
+              transform: "none"
+            }}>
+              Experience Cassia
+            </span>
+          </div>
+          <p style={{
+            fontFamily: "JustSans, sans-serif",
+            fontSize: isMobile ? "16px" : "20px",
+            lineHeight: isMobile ? "1.6" : "1.8",
+            color: "rgb(244, 226, 180)",
+            maxWidth: "900px",
+            margin: "0px auto",
+            textAlign: "center",
+            fontWeight: "400",
+            letterSpacing: "0.3px",
+            opacity: 1,
+            transform: "none"
+          }}>
+            Our premium restaurant experience with our selected menu of 120 well-curated dishes takes your culinary experience to the next level with an elevated dine-in experience for up to 100 people at a time, serving multiple cuisines like Indian, Arab, and Chinese.
+          </p>
+        </div>
+        
         {/* Cuisines Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -149,8 +152,8 @@ function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           style={{
-            marginTop: isMobile ? "40px" : "60px",
-            marginBottom: isMobile ? "40px" : "60px",
+            marginTop: isMobile ? "20px" : "60px",
+            marginBottom: isMobile ? "20px" : "60px",
           }}
         >
           <motion.div
@@ -161,189 +164,99 @@ function About() {
               margin: "0 auto",
             }}
           >
-            <h3
-              style={{
-                fontFamily: "Mondia, serif",
-                fontSize: isMobile ? "28px" : "36px",
-                marginBottom: isMobile ? "40px" : "50px",
-                color: "#f4e2b4",
-                textAlign: "center",
-                fontWeight: "600",
-                letterSpacing: "0.5px",
-              }}
-            >
-              Our Cuisines
-            </h3>
-
             <div
               style={{
-                display: "grid",
-                gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
-                gap: isMobile ? "25px" : "30px",
-                alignItems: "stretch",
+                display: "flex",
+                flexDirection: isMobile ? "column" : "row",
+                gap: isMobile ? "20px" : "60px",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              {/* Arabic Cuisine Card */}
+              {/* Arabic Cuisine */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                whileHover={{
-                  y: -5,
-                  transition: { duration: 0.3 },
-                }}
                 style={{
-                  background: "rgba(244, 226, 180, 0.95)",
-                  borderRadius: "20px",
-                  padding: isMobile ? "30px 20px" : "40px 30px",
                   textAlign: "center",
-                  border: "1px solid rgba(244, 226, 180, 0.3)",
-                  boxShadow: "0 15px 35px rgba(0, 0, 0, 0.1)",
-                  backdropFilter: "blur(10px)",
-                  position: "relative",
-                  overflow: "hidden",
                 }}
               >
-                {/* Card Background Pattern */}
-                <div
+                <p
                   style={{
-                    position: "absolute",
-                    top: "-50%",
-                    right: "-50%",
-                    width: "100%",
-                    height: "100%",
-                    background:
-                      "radial-gradient(circle, rgba(103, 22, 46, 0.05) 0%, transparent 70%)",
-                    borderRadius: "50%",
-                  }}
-                />
-
-                <h4
-                  style={{
-                    fontFamily: "Mondia, serif",
-                    fontSize: isMobile ? "20px" : "24px",
-                    color: "#67162e",
+                    fontFamily: "JustSans, sans-serif",
+                    fontSize: isMobile ? "18px" : "20px",
+                    color: "#f4e2b4",
                     margin: "0",
-                    fontWeight: "600",
-                    letterSpacing: "0.5px",
-                    position: "relative",
-                    zIndex: 2,
+                    fontWeight: "400",
+                    letterSpacing: "0.3px",
                     textAlign: "center",
+                    lineHeight: isMobile ? "1.7" : "1.8",
+                    opacity: 0.95,
                   }}
                 >
                   Arabic Cuisine
-                </h4>
+                </p>
               </motion.div>
 
-              {/* Indian & South-Indian Cuisine Card */}
+              {/* Indian & South-Indian Cuisine */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                whileHover={{
-                  y: -5,
-                  transition: { duration: 0.3 },
-                }}
                 style={{
-                  background: "rgba(244, 226, 180, 0.95)",
-                  borderRadius: "20px",
-                  padding: isMobile ? "30px 20px" : "40px 30px",
                   textAlign: "center",
-                  border: "1px solid rgba(244, 226, 180, 0.3)",
-                  boxShadow: "0 15px 35px rgba(0, 0, 0, 0.1)",
-                  backdropFilter: "blur(10px)",
-                  position: "relative",
-                  overflow: "hidden",
                 }}
               >
-                {/* Card Background Pattern */}
-                <div
+                <p
                   style={{
-                    position: "absolute",
-                    top: "-50%",
-                    right: "-50%",
-                    width: "100%",
-                    height: "100%",
-                    background:
-                      "radial-gradient(circle, rgba(103, 22, 46, 0.05) 0%, transparent 70%)",
-                    borderRadius: "50%",
-                  }}
-                />
-
-                <h4
-                  style={{
-                    fontFamily: "Mondia, serif",
-                    fontSize: isMobile ? "20px" : "24px",
-                    color: "#67162e",
+                    fontFamily: "JustSans, sans-serif",
+                    fontSize: isMobile ? "18px" : "20px",
+                    color: "#f4e2b4",
                     margin: "0",
-                    fontWeight: "600",
-                    letterSpacing: "0.5px",
-                    position: "relative",
-                    zIndex: 2,
+                    fontWeight: "400",
+                    letterSpacing: "0.3px",
                     textAlign: "center",
+                    lineHeight: isMobile ? "1.7" : "1.8",
+                    opacity: 0.95,
                   }}
                 >
-                  Indian & South-Indian Cuisine
-                </h4>
+                  Indian & South-<br />Indian Cuisine
+                </p>
               </motion.div>
 
-              {/* Chinese Cuisine Card */}
+              {/* Chinese Cuisine */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                whileHover={{
-                  y: -5,
-                  transition: { duration: 0.3 },
-                }}
                 style={{
-                  background: "rgba(244, 226, 180, 0.95)",
-                  borderRadius: "20px",
-                  padding: isMobile ? "30px 20px" : "40px 30px",
                   textAlign: "center",
-                  border: "1px solid rgba(244, 226, 180, 0.3)",
-                  boxShadow: "0 15px 35px rgba(0, 0, 0, 0.1)",
-                  backdropFilter: "blur(10px)",
-                  position: "relative",
-                  overflow: "hidden",
                 }}
               >
-                {/* Card Background Pattern */}
-                <div
+                <p
                   style={{
-                    position: "absolute",
-                    top: "-50%",
-                    right: "-50%",
-                    width: "100%",
-                    height: "100%",
-                    background:
-                      "radial-gradient(circle, rgba(103, 22, 46, 0.05) 0%, transparent 70%)",
-                    borderRadius: "50%",
-                  }}
-                />
-
-                <h4
-                  style={{
-                    fontFamily: "Mondia, serif",
-                    fontSize: isMobile ? "20px" : "24px",
-                    color: "#67162e",
+                    fontFamily: "JustSans, sans-serif",
+                    fontSize: isMobile ? "18px" : "20px",
+                    color: "#f4e2b4",
                     margin: "0",
-                    fontWeight: "600",
-                    letterSpacing: "0.5px",
-                    position: "relative",
-                    zIndex: 2,
+                    fontWeight: "400",
+                    letterSpacing: "0.3px",
                     textAlign: "center",
+                    lineHeight: isMobile ? "1.7" : "1.8",
+                    opacity: 0.95,
                   }}
                 >
                   Chinese Cuisine
-                </h4>
+                </p>
               </motion.div>
             </div>
           </motion.div>
         </motion.div>
+
         </div>
       </div>
 
@@ -359,7 +272,7 @@ function About() {
       <div style={{
         maxWidth: "1200px",
         margin: "0 auto",
-        padding: isMobile ? "0 20px" : "0 40px",
+        padding: isMobile ? "0 10px" : "0 40px",
         width: "100%",
         boxSizing: "border-box",
       }}>

@@ -130,10 +130,6 @@ function Menu() {
 		// Add navigation logic here
 	};
 
-	const getQuoteButton = () => {
-		console.log('Get a quote clicked');
-		// Add quote logic here
-	};
 
 	// Handle service change and update URL
 	const handleServiceChange = (service) => {
@@ -179,69 +175,6 @@ function Menu() {
 					borderRadius: "50%",
 				}}/>
 
-				{/* Header */}
-				{/* <div style={{
-					padding: window.innerWidth <= 480 ? "30px 20px" : "60px 0",
-					position: "relative",
-					zIndex: 2
-				}}>
-					<div className="container">
-						<div style={{
-							display: "flex",
-							justifyContent: "space-between",
-							alignItems: "center",
-							marginBottom: window.innerWidth <= 480 ? "40px" : "60px"
-						}}>
-							<motion.h1 
-								initial={{ opacity: 0, x: -30 }}
-								animate={{ opacity: 1, x: 0 }}
-								transition={{ duration: 0.8 }}
-								style={{
-									color: "#f4e2b4",
-									fontSize: window.innerWidth <= 480 ? "32px" : "48px",
-									fontWeight: "600",
-									fontFamily: "Mondia, serif",
-									margin: 0
-								}}
-							>
-								Cassia
-							</motion.h1>
-
-							<motion.button
-								initial={{ opacity: 0, x: 30 }}
-								animate={{ opacity: 1, x: 0 }}
-								transition={{ duration: 0.8 }}
-								onClick={getQuoteButton}
-								style={{
-									backgroundColor: "transparent",
-									color: "#f4e2b4",
-									padding: "12px 24px",
-									borderRadius: "25px",
-									border: "2px solid #f4e2b4",
-									fontFamily: "JustSans, sans-serif",
-									fontSize: "16px",
-									fontWeight: "500",
-									cursor: "pointer",
-									transition: "all 0.3s ease"
-								}}
-								onMouseEnter={(e) => {
-									e.target.style.backgroundColor = "#f4e2b4";
-									e.target.style.color = "#67162e";
-									e.target.style.transform = "translateY(-2px)";
-									e.target.style.boxShadow = "0 6px 20px rgba(244, 226, 180, 0.3)";
-								}}
-								onMouseLeave={(e) => {
-									e.target.style.backgroundColor = "transparent";
-									e.target.style.color = "#f4e2b4";
-									e.target.style.transform = "translateY(0)";
-									e.target.style.boxShadow = "none";
-								}}
-							>
-								Get a Quote
-							</motion.button>
-						</div>
-					</div>
-				</div> */}
 
 				{/* Main Content */}
 				<div style={{

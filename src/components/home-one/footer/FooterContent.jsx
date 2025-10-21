@@ -1,5 +1,7 @@
 import Shape1Img from "../../../assets/images/v1/shape1.png";
 import Star2Img from "../../../assets/images/v1/star2.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 function FooterContent() {
 	return (
 		<div style={{
@@ -55,18 +57,28 @@ function FooterContent() {
 					<p style={{
 						fontFamily: 'JustSans, sans-serif',
 						fontSize: '16px',
-						marginBottom: '5px',
+						marginBottom: '10px',
 						color: '#fffbe6'
 					}}>WhatsApp & Call:</p>
-					<a href="tel:+971588031791" style={{
-						fontFamily: 'JustSans, sans-serif',
-						fontSize: '20px',
-						color: '#f4e2b4',
-						textDecoration: 'none',
-						transition: 'color 0.3s ease'
+					<a href="https://wa.me/971588244120" target="_blank" rel="noopener noreferrer" style={{
+						display: 'inline-block',
+						transition: 'transform 0.3s ease, color 0.3s ease',
+						textDecoration: 'none'
+					}} onMouseEnter={(e) => {
+						e.target.style.transform = 'scale(1.1)';
+						e.target.style.color = '#25D366';
+					}} onMouseLeave={(e) => {
+						e.target.style.transform = 'scale(1)';
+						e.target.style.color = '#f4e2b4';
 					}}>
-						+971588244120‬
-
+						<FontAwesomeIcon 
+							icon={faWhatsapp} 
+							style={{
+								fontSize: '32px',
+								color: '#f4e2b4',
+								transition: 'color 0.3s ease'
+							}}
+						/>
 					</a>
 				</div>
 				

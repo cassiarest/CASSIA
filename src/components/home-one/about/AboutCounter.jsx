@@ -5,6 +5,7 @@ function AboutCounter() {
 		<div style={{
 			// background: "#ffffff",
 			borderRadius: "30px",
+        paddingTop: "80px",
 			height: "100%",
 			// boxShadow: "0 20px 40px rgba(103, 22, 46, 0.1)"
 		}}>
