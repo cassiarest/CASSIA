@@ -133,10 +133,10 @@ function About() {
           </div>
           <p style={{
             fontFamily: "Mondia, sans-serif",
-            fontSize: "16px",
+            fontSize: "19px",
             lineHeight: isSmallMobile ? "1.5" : isMobile ? "1.6" : "1.8",
             color: "rgb(244, 226, 180)",
-            maxWidth: "83%",
+            maxWidth: "85%",
             margin: "0px auto",
             textAlign: "center",
             fontWeight: "400",
@@ -172,7 +172,7 @@ function About() {
               style={{
                 display: "flex",
                 flexDirection: "row",
-                gap: isSmallMobile ? "15px" : isMobile ? "20px" : isTablet ? "40px" : "80px",
+                gap: isSmallMobile ? "15px" : isMobile ? "20px" : isTablet ? "40px" : "264px",
                 alignItems: "center",
                 justifyContent: "center",
                 flexWrap: isMobile ? "wrap" : "nowrap",
