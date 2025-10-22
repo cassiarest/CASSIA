@@ -6,11 +6,13 @@ import BanquetHallBg from '../assets/images/logo/banquet hall.png';
 function About() {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
+  const [isSmallMobile, setIsSmallMobile] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const checkScreenSize = () => {
       const width = window.innerWidth;
+      setIsSmallMobile(width <= 480);
       setIsMobile(width <= 768);
       setIsTablet(width > 768 && width <= 1024);
     };
@@ -39,9 +41,9 @@ function About() {
   }, []);
 
   // Consistent padding pattern
-  const cardPadding = isMobile ? "15px 10px" : "40px";
-  const sectionPadding = isMobile ? "100px 0" : "100px 0";
-  const containerPadding = isMobile ? "0 10px" : "0 40px";
+  const cardPadding = isSmallMobile ? "10px 8px" : isMobile ? "15px 10px" : "40px";
+  const sectionPadding = isSmallMobile ? "80px 0" : isMobile ? "100px 0" : "100px 0";
+  const containerPadding = isSmallMobile ? "0 8px" : isMobile ? "0 10px" : isTablet ? "0 20px" : "0 40px";
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -62,7 +64,8 @@ function About() {
     backgroundRepeat: 'no-repeat',
     position: "relative",
     width: "100%",
-    height: "100vh",
+    height: isSmallMobile ? "auto" : isMobile ? "100vh" : "100vh",
+    minHeight: isSmallMobile ? "100vh" : "100vh",
     margin: "0",
     boxSizing: "border-box",
     display: "flex",
@@ -81,10 +84,10 @@ function About() {
   const textCardStyle = {
     padding: cardPadding,
     background: "rgba(244, 226, 180, 0.95)",
-    borderRadius: isMobile ? "20px" : "25px",
+    borderRadius: isSmallMobile ? "15px" : isMobile ? "20px" : "25px",
     border: "1px solid rgba(244, 226, 180, 0.3)",
     boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
-    marginBottom: isMobile ? "15px" : "25px",
+    marginBottom: isSmallMobile ? "10px" : isMobile ? "15px" : "25px",
   };
 
   const goToMenu = () => {
@@ -98,15 +101,15 @@ function About() {
         <div style={containerStyle}>
         {/* Header Section */}
         <div style={{
-          marginBottom: isMobile ? "30px" : "54px",
-          marginTop: isMobile ? "200px" : "255px",
+          marginBottom: isSmallMobile ? "20px" : isMobile ? "30px" : "54px",
+          marginTop: isSmallMobile ? "150px" : isMobile ? "200px" : "255px",
           textAlign: "center"
         }}>
           <div style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: isMobile ? "15px" : "30px",
+            gap: isSmallMobile ? "10px" : isMobile ? "15px" : "30px",
             flexDirection: isMobile ? "column" : "row",
             marginBottom: "10px",
             opacity: 1,
@@ -114,14 +117,14 @@ function About() {
           }}>
             <span style={{
               fontFamily: "Mondia, sans-serif",
-              fontSize: isMobile ? "40px" : "64px",
+              fontSize: isSmallMobile ? "32px" : isMobile ? "40px" : "64px",
               color: "rgb(244, 226, 180)",
-              lineHeight: isMobile ? "1.2" : "1.3",
+              lineHeight: isSmallMobile ? "1.1" : isMobile ? "1.2" : "1.3",
               margin: "0px",
               padding: "0px",
               textAlign: "center",
               fontWeight: "500",
-              letterSpacing: "2px",
+              letterSpacing: isSmallMobile ? "1px" : "2px",
               opacity: 1,
               transform: "none"
             }}>
@@ -130,17 +133,17 @@ function About() {
           </div>
           <p style={{
             fontFamily: "Mondia, sans-serif",
-            fontSize: isMobile ? "16px" : "20px",
-            lineHeight: isMobile ? "1.6" : "1.8",
+            fontSize: "16px",
+            lineHeight: isSmallMobile ? "1.5" : isMobile ? "1.6" : "1.8",
             color: "rgb(244, 226, 180)",
-            maxWidth: "1000px",
+            maxWidth: "83%",
             margin: "0px auto",
             textAlign: "center",
             fontWeight: "400",
             letterSpacing: "0.3px",
             opacity: 1,
             transform: "none",
-            padding: "10px"
+            padding: isSmallMobile ? "5px" : "10px"
           }}>
             Our premium restaurant experience with our selected menu of 120 well-curated dishes takes your culinary experience to the next level with an elevated dine-in experience for up to 100 people at a time, serving multiple cuisines like Indian, Arab, and Chinese.
           </p>
@@ -153,8 +156,8 @@ function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           style={{
-            marginTop: isMobile ? "20px" : "60px",
-            marginBottom: isMobile ? "20px" : "60px",
+            marginTop: isSmallMobile ? "15px" : isMobile ? "20px" : "60px",
+            marginBottom: isSmallMobile ? "15px" : isMobile ? "20px" : "60px",
           }}
         >
           <motion.div
@@ -168,10 +171,11 @@ function About() {
             <div
               style={{
                 display: "flex",
-                flexDirection: isMobile ? "column" : "row",
-                gap: isMobile ? "20px" : "240px",
-                alignItems: "flex-start",
+                flexDirection: "row",
+                gap: isSmallMobile ? "15px" : isMobile ? "20px" : isTablet ? "40px" : "80px",
+                alignItems: "center",
                 justifyContent: "center",
+                flexWrap: isMobile ? "wrap" : "nowrap",
               }}
             >
               {/* Arabic Cuisine */}
@@ -183,7 +187,7 @@ function About() {
                 style={{
                   textAlign: "center",
                   display: "flex",
-                  alignItems: "flex-start",
+                  alignItems: isMobile ? "center" : "flex-start",
                   justifyContent: "center",
                   minHeight: "60px",
                 }}
@@ -191,13 +195,13 @@ function About() {
                 <p
                   style={{
                     fontFamily: "Mondia, sans-serif",
-                    fontSize: isMobile ? "18px" : "20px",
+                    fontSize: isSmallMobile ? "16px" : isMobile ? "18px" : "20px",
                     color: "#f4e2b4",
                     margin: "0",
                     fontWeight: "400",
                     letterSpacing: "0.3px",
                     textAlign: "center",
-                    lineHeight: isMobile ? "1.7" : "1.8",
+                    lineHeight: isSmallMobile ? "1.6" : isMobile ? "1.7" : "1.8",
                     opacity: 0.95,
                   }}
                 >
@@ -214,7 +218,7 @@ function About() {
                 style={{
                   textAlign: "center",
                   display: "flex",
-                  alignItems: "flex-start",
+                  alignItems: isMobile ? "center" : "flex-start",
                   justifyContent: "center",
                   minHeight: "60px",
                 }}
@@ -222,13 +226,13 @@ function About() {
                 <p
                   style={{
                     fontFamily: "Mondia, sans-serif",
-                    fontSize: isMobile ? "18px" : "20px",
+                    fontSize: isSmallMobile ? "16px" : isMobile ? "18px" : "20px",
                     color: "#f4e2b4",
                     margin: "0",
                     fontWeight: "400",
                     letterSpacing: "0.3px",
                     textAlign: "center",
-                    lineHeight: isMobile ? "1.7" : "1.8",
+                    lineHeight: isSmallMobile ? "1.6" : isMobile ? "1.7" : "1.8",
                     opacity: 0.95,
                   }}
                 >
@@ -245,7 +249,7 @@ function About() {
                 style={{
                   textAlign: "center",
                   display: "flex",
-                  alignItems: "flex-start",
+                  alignItems: isMobile ? "center" : "flex-start",
                   justifyContent: "center",
                   minHeight: "60px",
                 }}
@@ -253,13 +257,13 @@ function About() {
                 <p
                   style={{
                     fontFamily: "Mondia, sans-serif",
-                    fontSize: isMobile ? "18px" : "20px",
+                    fontSize: isSmallMobile ? "16px" : isMobile ? "18px" : "20px",
                     color: "#f4e2b4",
                     margin: "0",
                     fontWeight: "400",
                     letterSpacing: "0.3px",
                     textAlign: "center",
-                    lineHeight: isMobile ? "1.7" : "1.8",
+                    lineHeight: isSmallMobile ? "1.6" : isMobile ? "1.7" : "1.8",
                     opacity: 0.95,
                   }}
                 >
@@ -285,7 +289,7 @@ function About() {
       <div style={{
         maxWidth: "1200px",
         margin: "0 auto",
-        padding: isMobile ? "0 10px" : "0 40px",
+        padding: isSmallMobile ? "0 8px" : isMobile ? "0 10px" : isTablet ? "0 20px" : "0 40px",
         width: "100%",
         boxSizing: "border-box",
       }}>
@@ -298,8 +302,8 @@ function About() {
             display: "flex",
             flexDirection: isMobile ? "column" : "row",
             alignItems: "center",
-            gap: isMobile ? "20px" : "30px",
-            marginTop: isMobile ? "40px" : "60px",
+            gap: isSmallMobile ? "15px" : isMobile ? "20px" : "30px",
+            marginTop: isSmallMobile ? "30px" : isMobile ? "40px" : "60px",
           }}
         >
           {/* Left Side - Title, Image and Description */}
@@ -316,8 +320,8 @@ function About() {
             <h3
               style={{
                 fontFamily: "Mondia, serif",
-                fontSize: isMobile ? "24px" : "36px",
-                marginBottom: isMobile ? "16px" : "20px",
+                fontSize: isSmallMobile ? "20px" : isMobile ? "24px" : "36px",
+                marginBottom: isSmallMobile ? "12px" : isMobile ? "16px" : "20px",
                 color: "#f4e2b4",
                 lineHeight: "1.2",
                 textAlign: isMobile ? "center" : "left",
@@ -329,7 +333,7 @@ function About() {
             {/* Banquet Hall Image */}
             <div style={{
               position: "relative",
-              marginBottom: isMobile ? "20px" : "30px",
+              marginBottom: isSmallMobile ? "15px" : isMobile ? "20px" : "30px",
               borderRadius: "15px",
               overflow: "hidden",
               width: "100%",
@@ -340,7 +344,7 @@ function About() {
                 alt="Our Banquet Hall" 
                 style={{
                   width: "100%",
-                  height: isMobile ? "200px" : "300px",
+                  height: isSmallMobile ? "180px" : isMobile ? "200px" : "300px",
                   objectFit: "cover",
                   display: "block"
                 }}
@@ -360,8 +364,8 @@ function About() {
             <p
               style={{
                 fontFamily: "JustSans, sans-serif",
-                fontSize: isMobile ? "15px" : "18px",
-                lineHeight: isMobile ? "1.6" : "1.7",
+                fontSize: isSmallMobile ? "14px" : isMobile ? "15px" : "18px",
+                lineHeight: isSmallMobile ? "1.5" : isMobile ? "1.6" : "1.7",
                 color: "#f4e2b4",
                 margin: 0,
                 opacity: 0.95,
@@ -385,7 +389,7 @@ function About() {
               flex: 1,
               display: "flex",
               flexDirection: "column",
-              gap: isMobile ? "25px" : "35px",
+              gap: isSmallMobile ? "20px" : isMobile ? "25px" : "35px",
               alignItems: isMobile ? "center" : "flex-end",
               paddingTop: isMobile ? "10px" : "20px",
             }}
@@ -432,7 +436,7 @@ function About() {
                   }}
                   style={{
                     fontFamily: "Mondia, serif",
-                    fontSize: isMobile ? "20px" : "22px",
+                    fontSize: isSmallMobile ? "18px" : isMobile ? "20px" : "22px",
                     color: "#f4e2b4",
                     margin: "0",
                     fontWeight: "500",
@@ -446,7 +450,7 @@ function About() {
                 {index < 2 && (
                   <motion.div
                     initial={{ width: 0 }}
-                    whileInView={{ width: isMobile ? "80px" : "100px" }}
+                    whileInView={{ width: isSmallMobile ? "60px" : isMobile ? "80px" : "100px" }}
                     viewport={{ once: true }}
                     transition={{ 
                       duration: 0.8, 
@@ -457,7 +461,7 @@ function About() {
                       height: "1px",
                       background:
                         "linear-gradient(to right, #f4e2b4 0%, rgba(244, 226, 180, 0.3) 100%)",
-                      margin: isMobile ? "15px auto 0 auto" : "15px 0 0 auto",
+                      margin: isSmallMobile ? "12px auto 0 auto" : isMobile ? "15px auto 0 auto" : "15px 0 0 auto",
                       borderRadius: "1px",
                     }}
                   />
@@ -472,10 +476,10 @@ function About() {
       <div
         style={{
           position: "absolute",
-          bottom: isMobile ? "-20px" : "-40px",
+          bottom: isSmallMobile ? "-15px" : isMobile ? "-20px" : "-40px",
           left: 0,
           right: 0,
-          height: isMobile ? "60px" : "120px",
+          height: isSmallMobile ? "50px" : isMobile ? "60px" : "120px",
           overflow: "hidden",
           zIndex: 1,
         }}
@@ -490,7 +494,7 @@ function About() {
             background: "#67162e",
             clipPath:
               "polygon(0 100%, 100% 100%, 100% 40%, 75% 60%, 50% 40%, 25% 60%, 0 40%)",
-            opacity: isMobile ? 0.08 : 0.1,
+            opacity: isSmallMobile ? 0.06 : isMobile ? 0.08 : 0.1,
           }}
         />
         <div
@@ -503,7 +507,7 @@ function About() {
             background: "#67162e",
             clipPath:
               "polygon(0 100%, 100% 100%, 100% 45%, 85% 65%, 60% 45%, 35% 65%, 0 45%)",
-            opacity: isMobile ? 0.12 : 0.15,
+            opacity: isSmallMobile ? 0.10 : isMobile ? 0.12 : 0.15,
           }}
         />
         <div
@@ -516,7 +520,7 @@ function About() {
             background: "#67162e",
             clipPath:
               "polygon(0 100%, 100% 100%, 100% 50%, 70% 70%, 40% 50%, 15% 70%, 0 50%)",
-            opacity: isMobile ? 0.15 : 0.2,
+            opacity: isSmallMobile ? 0.12 : isMobile ? 0.15 : 0.2,
           }}
         />
       </div>
