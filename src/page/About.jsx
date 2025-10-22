@@ -133,7 +133,7 @@ function About() {
           </div>
           <p style={{
             fontFamily: "Mondia, sans-serif",
-            fontSize: "19px",
+            fontSize: isMobile ? "17px" : "19px",
             lineHeight: isSmallMobile ? "1.5" : isMobile ? "1.6" : "1.8",
             color: "rgb(244, 226, 180)",
             maxWidth: "85%",
