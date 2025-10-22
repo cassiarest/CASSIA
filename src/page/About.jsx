@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import ExperienceCassiaBg from '../assets/images/logo/ExperienceCassia.png';
+import ExperienceCassiaBg from '../assets/images/logo/Experience cassia.png';
 import BanquetHallBg from '../assets/images/logo/banquet hall.png';
 
 function About() {
@@ -99,7 +99,7 @@ function About() {
         {/* Header Section */}
         <div style={{
           marginBottom: isMobile ? "30px" : "54px",
-          marginTop: isMobile ? "200px" : "329px",
+          marginTop: isMobile ? "200px" : "255px",
           textAlign: "center"
         }}>
           <div style={{
@@ -108,7 +108,7 @@ function About() {
             justifyContent: "center",
             gap: isMobile ? "15px" : "30px",
             flexDirection: isMobile ? "column" : "row",
-            marginBottom: isMobile ? "20px" : "40px",
+            marginBottom: "10px",
             opacity: 1,
             transform: "none"
           }}>
@@ -120,8 +120,8 @@ function About() {
               margin: "0px",
               padding: "0px",
               textAlign: "center",
-              fontWeight: "700",
-              letterSpacing: "1px",
+              fontWeight: "500",
+              letterSpacing: "2px",
               opacity: 1,
               transform: "none"
             }}>
@@ -129,17 +129,18 @@ function About() {
             </span>
           </div>
           <p style={{
-            fontFamily: "JustSans, sans-serif",
+            fontFamily: "Mondia, sans-serif",
             fontSize: isMobile ? "16px" : "20px",
             lineHeight: isMobile ? "1.6" : "1.8",
             color: "rgb(244, 226, 180)",
-            maxWidth: "900px",
+            maxWidth: "1000px",
             margin: "0px auto",
             textAlign: "center",
             fontWeight: "400",
             letterSpacing: "0.3px",
             opacity: 1,
-            transform: "none"
+            transform: "none",
+            padding: "10px"
           }}>
             Our premium restaurant experience with our selected menu of 120 well-curated dishes takes your culinary experience to the next level with an elevated dine-in experience for up to 100 people at a time, serving multiple cuisines like Indian, Arab, and Chinese.
           </p>
@@ -168,8 +169,8 @@ function About() {
               style={{
                 display: "flex",
                 flexDirection: isMobile ? "column" : "row",
-                gap: isMobile ? "20px" : "60px",
-                alignItems: "center",
+                gap: isMobile ? "20px" : "240px",
+                alignItems: "flex-start",
                 justifyContent: "center",
               }}
             >
@@ -181,11 +182,15 @@ function About() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 style={{
                   textAlign: "center",
+                  display: "flex",
+                  alignItems: "flex-start",
+                  justifyContent: "center",
+                  minHeight: "60px",
                 }}
               >
                 <p
                   style={{
-                    fontFamily: "JustSans, sans-serif",
+                    fontFamily: "Mondia, sans-serif",
                     fontSize: isMobile ? "18px" : "20px",
                     color: "#f4e2b4",
                     margin: "0",
@@ -208,11 +213,15 @@ function About() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 style={{
                   textAlign: "center",
+                  display: "flex",
+                  alignItems: "flex-start",
+                  justifyContent: "center",
+                  minHeight: "60px",
                 }}
               >
                 <p
                   style={{
-                    fontFamily: "JustSans, sans-serif",
+                    fontFamily: "Mondia, sans-serif",
                     fontSize: isMobile ? "18px" : "20px",
                     color: "#f4e2b4",
                     margin: "0",
@@ -235,11 +244,15 @@ function About() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 style={{
                   textAlign: "center",
+                  display: "flex",
+                  alignItems: "flex-start",
+                  justifyContent: "center",
+                  minHeight: "60px",
                 }}
               >
                 <p
                   style={{
-                    fontFamily: "JustSans, sans-serif",
+                    fontFamily: "Mondia, sans-serif",
                     fontSize: isMobile ? "18px" : "20px",
                     color: "#f4e2b4",
                     margin: "0",
