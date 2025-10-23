@@ -370,7 +370,7 @@ function About() {
             <p
               style={{
                 fontFamily: "JustSans, sans-serif",
-                fontSize: isSmallMobile ? "12px" : isMobile ? "13px" : "18px",
+                fontSize: "14px",
                 lineHeight: isSmallMobile ? "1.5" : isMobile ? "1.6" : "1.7",
                 color: "#f4e2b4",
                 margin: 0,

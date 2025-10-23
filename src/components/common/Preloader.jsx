@@ -41,60 +41,10 @@ export default function Preloader() {
 			width: "100vw",
 			height: "100vh",
 			backgroundColor: "#67162e",
-			display: "flex",
-			justifyContent: "center",
-			alignItems: "center",
 			zIndex: 9999,
 			opacity: isLoaded ? 0 : 1,
-			transition: "opacity 0.5s ease",
-			transform: "translateZ(0)",
-			WebkitTransform: "translateZ(0)",
-			WebkitBackfaceVisibility: "hidden",
-			backfaceVisibility: "hidden"
+			transition: "opacity 0.5s ease"
 		}}>
-			{/* Hide loading animation on mobile, show only on desktop */}
-			<div style={{
-				display: window.innerWidth <= 768 ? "none" : "flex",
-				gap: isSmallScreen ? "8px" : "15px",
-				alignItems: "center",
-				justifyContent: "center",
-				transform: "translateZ(0)",
-				WebkitTransform: "translateZ(0)",
-				WebkitBackfaceVisibility: "hidden",
-				backfaceVisibility: "hidden",
-				padding: "10px"
-			}}>
-				{[1, 2, 3, 4].map((index) => (
-					<div
-						key={index}
-						style={{
-							width: isSmallScreen ? "12px" : "20px",
-							height: isSmallScreen ? "12px" : "20px",
-							backgroundColor: "#f4e2b4",
-							borderRadius: "50%",
-							animation: `loaderDot 1s infinite ease-in-out ${index * 0.2}s`,
-							transform: "translateZ(0)",
-							WebkitTransform: "translateZ(0)",
-							WebkitBackfaceVisibility: "hidden",
-							backfaceVisibility: "hidden"
-						}}
-					/>
-				))}
-			</div>
-			<style>
-				{`
-					@keyframes loaderDot {
-						0%, 100% {
-							transform: scale(0.3);
-							opacity: 0.3;
-						}
-						50% {
-							transform: scale(1);
-							opacity: 1;
-						}
-					}
-				`}
-			</style>
 		</div>
 	);
 }
