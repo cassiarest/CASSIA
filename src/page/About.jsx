@@ -133,17 +133,22 @@ function About() {
           </div>
           <p style={{
             fontFamily: "Mondia, sans-serif",
-            fontSize: isMobile ? "17px" : "19px",
-            lineHeight: isSmallMobile ? "1.5" : isMobile ? "1.6" : "1.8",
+            fontSize: isSmallMobile ? "14px" : isMobile ? "13px" : "17px",
+            lineHeight: isSmallMobile ? "1.4" : isMobile ? "1.5" : "1.7",
             color: "rgb(244, 226, 180)",
-            maxWidth: "85%",
+            maxWidth: "77%",
             margin: "0px auto",
             textAlign: "center",
             fontWeight: "400",
             letterSpacing: "0.3px",
             opacity: 1,
             transform: "none",
-            padding: isSmallMobile ? "5px" : "10px"
+            padding: 0,
+            // 4-line clamp without -webkit on mobile
+            overflow: isMobile ? "hidden" : "visible",
+            maxHeight: isSmallMobile ? `${1.4 * 4}em` : isMobile ? `${1.5 * 4}em` : "none",
+            wordBreak: "break-word",
+            hyphens: "auto"
           }}>
             Our premium restaurant experience with our selected menu of 120 well-curated dishes takes your culinary experience to the next level with an elevated dine-in experience for up to 100 people at a time, serving multiple cuisines like Indian, Arab, and Chinese.
           </p>
@@ -172,10 +177,10 @@ function About() {
               style={{
                 display: "flex",
                 flexDirection: "row",
-                gap: isSmallMobile ? "15px" : isMobile ? "20px" : isTablet ? "40px" : "264px",
+                gap: isSmallMobile ? "25px" : isMobile ? "30px" : isTablet ? "70px" : "320px",
                 alignItems: "center",
                 justifyContent: "center",
-                flexWrap: isMobile ? "wrap" : "nowrap",
+                flexWrap: "nowrap",
               }}
             >
               {/* Arabic Cuisine */}
@@ -195,13 +200,13 @@ function About() {
                 <p
                   style={{
                     fontFamily: "Mondia, sans-serif",
-                    fontSize: isSmallMobile ? "16px" : isMobile ? "18px" : "20px",
+                    fontSize: isSmallMobile ? "12px" : isMobile ? "14px" : "18px",
                     color: "#f4e2b4",
                     margin: "0",
                     fontWeight: "400",
                     letterSpacing: "0.3px",
                     textAlign: "center",
-                    lineHeight: isSmallMobile ? "1.6" : isMobile ? "1.7" : "1.8",
+                    lineHeight: isSmallMobile ? "1.5" : isMobile ? "1.6" : "1.8",
                     opacity: 0.95,
                   }}
                 >
@@ -226,13 +231,13 @@ function About() {
                 <p
                   style={{
                     fontFamily: "Mondia, sans-serif",
-                    fontSize: isSmallMobile ? "16px" : isMobile ? "18px" : "20px",
+                    fontSize: isSmallMobile ? "12px" : isMobile ? "14px" : "18px",
                     color: "#f4e2b4",
                     margin: "0",
                     fontWeight: "400",
                     letterSpacing: "0.3px",
                     textAlign: "center",
-                    lineHeight: isSmallMobile ? "1.6" : isMobile ? "1.7" : "1.8",
+                    lineHeight: isSmallMobile ? "1.5" : isMobile ? "1.6" : "1.8",
                     opacity: 0.95,
                   }}
                 >
@@ -257,13 +262,13 @@ function About() {
                 <p
                   style={{
                     fontFamily: "Mondia, sans-serif",
-                    fontSize: isSmallMobile ? "16px" : isMobile ? "18px" : "20px",
+                    fontSize: isSmallMobile ? "12px" : isMobile ? "14px" : "18px",
                     color: "#f4e2b4",
                     margin: "0",
                     fontWeight: "400",
                     letterSpacing: "0.3px",
                     textAlign: "center",
-                    lineHeight: isSmallMobile ? "1.6" : isMobile ? "1.7" : "1.8",
+                    lineHeight: isSmallMobile ? "1.5" : isMobile ? "1.6" : "1.8",
                     opacity: 0.95,
                   }}
                 >
@@ -320,8 +325,9 @@ function About() {
             <h3
               style={{
                 fontFamily: "Mondia, serif",
-                fontSize: isSmallMobile ? "20px" : isMobile ? "24px" : "36px",
-                marginBottom: isSmallMobile ? "12px" : isMobile ? "16px" : "20px",
+                fontSize: isSmallMobile ? "24px" : isMobile ? "28px" : "42px",
+                marginTop: isSmallMobile ? "20px" : isMobile ? "25px" : "30px",
+                marginBottom: isSmallMobile ? "20px" : isMobile ? "25px" : "30px",
                 color: "#f4e2b4",
                 lineHeight: "1.2",
                 textAlign: isMobile ? "center" : "left",
@@ -364,12 +370,18 @@ function About() {
             <p
               style={{
                 fontFamily: "JustSans, sans-serif",
-                fontSize: isSmallMobile ? "14px" : isMobile ? "15px" : "18px",
+                fontSize: isSmallMobile ? "12px" : isMobile ? "13px" : "18px",
                 lineHeight: isSmallMobile ? "1.5" : isMobile ? "1.6" : "1.7",
                 color: "#f4e2b4",
                 margin: 0,
                 opacity: 0.95,
                 textAlign: isMobile ? "center" : "left",
+                maxWidth: "99%",
+                // 4-line clamp without -webkit on mobile
+                overflow: isMobile ? "hidden" : "visible",
+                maxHeight: isSmallMobile ? `${1.5 * 4}em` : isMobile ? `${1.6 * 4}em` : "none",
+                wordBreak: "break-word",
+                hyphens: "auto"
               }}
             >
               Host your special moments in our elegant indoor banquet hall,

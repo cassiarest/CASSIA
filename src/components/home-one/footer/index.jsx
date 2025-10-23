@@ -19,11 +19,32 @@ function Footer() {
 						paddingBottom: "30px"
 					}
 				}}>
-					<div className="row g-4">
-						<div className="col-lg-7">
-							<FooterContent />
+					<div className="row g-4 align-items-start">
+						<div className="col-lg-7 order-1 order-lg-1">
+							<h2 style={{
+								fontFamily: 'Mondia, serif',
+								fontSize: '48px',
+								marginBottom: '30px',
+								color: '#f4e2b4',
+								lineHeight: '1.2'
+							}}>
+								Ready to get cooking?
+							</h2>
+							<p style={{
+								fontFamily: 'JustSans, sans-serif',
+								fontSize: '18px',
+								marginBottom: '40px',
+								color: '#f4e2b4',
+								lineHeight: '1.6',
+								maxWidth: '500px'
+							}}>
+								For us to understand your need, Send us a message 
+							</p>
+							<div className="d-none d-lg-block">
+								<FooterContent />
+							</div>
 						</div>
-						<div className="col-lg-5">
+						<div className="col-lg-5 order-2 order-lg-2">
 							<div style={{
 								backgroundColor: "#fffbe6",
 								padding: "40px",
@@ -32,20 +53,11 @@ function Footer() {
 									padding: "30px 20px"
 								}
 							}}>
-								<h4 style={{
-									color: "#67162e",
-									fontSize: "32px",
-									fontWeight: "600",
-									marginBottom: "30px",
-									fontFamily: "Mondia, serif",
-									"@media (max-width: 768px)": {
-										fontSize: "28px",
-										marginBottom: "20px",
-										textAlign: "center"
-									}
-								}}>Send us a message</h4>
 								<MessageForm />
 							</div>
+						</div>
+						<div className="col-12 order-3 d-lg-none">
+							<FooterContent />
 						</div>
 					</div>
 				</div>

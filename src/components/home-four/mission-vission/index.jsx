@@ -31,7 +31,7 @@ function MissionVision() {
 			} else if (window.innerWidth <= 768) {
 				setFontSize({
 					heading: "40px",
-					text: "18px",
+					text: "15px", // Changed to 15px for mobile
 					pillHeight: "45px",
 					buttonPadding: "16px 32px",
 					buttonFontSize: "18px"
@@ -150,9 +150,9 @@ function MissionVision() {
 							lineHeight: window.innerWidth <= 480 ? "1.4" : "1.5",
 							fontWeight: "500",
 							fontFamily: "JustSans, sans-serif",
-							maxWidth: "1200px",
+							maxWidth: "77%",
 							margin: "0 auto",
-							padding: window.innerWidth <= 480 ? "0 15px" : "0",
+							padding: 0,
 							marginBottom: window.innerWidth <= 480 ? "30px" : "40px"
 						}}>
 							At <span style={{ 
@@ -213,13 +213,13 @@ function MissionVision() {
 							transition={{ duration: 0.8, delay: 0.6 }}
 						style={{
 							display: "flex",
-							flexDirection: isMobile ? "column" : "row",
-							justifyContent: isMobile ? "center" : "space-around",
+							flexDirection: "row",
+							justifyContent: "space-around",
 							alignItems: "center",
-							gap: isMobile ? "16px" : "0",
+							gap: isMobile ? "8px" : "0",
 							maxWidth: "800px",
 							margin: "0 auto",
-							padding: isMobile ? "0 16px" : "0 40px",
+							padding: isMobile ? "0 8px" : "0 40px",
 							position: "relative"
 						}}
 						>
@@ -231,7 +231,7 @@ function MissionVision() {
 							}}>
 								<h3 style={{
 									color: "#67162e",
-									fontSize: window.innerWidth <= 480 ? "20px" : window.innerWidth <= 768 ? "24px" : "28px",
+									fontSize: window.innerWidth <= 480 ? "14px" : window.innerWidth <= 768 ? "16px" : "28px",
 									fontWeight: "600",
 									fontFamily: "Mondia, serif",
 									margin: 0,
@@ -243,11 +243,11 @@ function MissionVision() {
 
 							{/* Vertical Divider */}
 						<div style={{
-							width: isMobile ? "100px" : "1px",
-							height: isMobile ? "2px" : "50px",
+							width: "1px",
+							height: isMobile ? "30px" : "50px",
 							background: "#67162e",
 							opacity: "0.3",
-							margin: isMobile ? "8px 0" : "0 20px",
+							margin: "0 8px",
 							borderRadius: "2px"
 						}}/>
 
@@ -259,7 +259,7 @@ function MissionVision() {
 							}}>
 								<h3 style={{
 									color: "#67162e",
-									fontSize: window.innerWidth <= 480 ? "20px" : window.innerWidth <= 768 ? "24px" : "28px",
+									fontSize: window.innerWidth <= 480 ? "14px" : window.innerWidth <= 768 ? "16px" : "28px",
 									fontWeight: "600",
 									fontFamily: "Mondia, serif",
 									margin: 0,
@@ -271,11 +271,11 @@ function MissionVision() {
 
 							{/* Vertical Divider */}
 						<div style={{
-							width: isMobile ? "100px" : "1px",
-							height: isMobile ? "2px" : "50px",
+							width: "1px",
+							height: isMobile ? "30px" : "50px",
 							background: "#67162e",
 							opacity: "0.3",
-							margin: isMobile ? "8px 0" : "0 20px",
+							margin: "0 8px",
 							borderRadius: "2px"
 						}}/>
 
@@ -287,7 +287,7 @@ function MissionVision() {
 							}}>
 								<h3 style={{
 									color: "#67162e",
-									fontSize: window.innerWidth <= 480 ? "20px" : window.innerWidth <= 768 ? "24px" : "28px",
+									fontSize: window.innerWidth <= 480 ? "14px" : window.innerWidth <= 768 ? "16px" : "28px",
 									fontWeight: "600",
 									fontFamily: "Mondia, serif",
 									margin: 0,

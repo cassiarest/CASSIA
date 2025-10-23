@@ -13,13 +13,17 @@ function HeroContent() {
 	});
 
 	const [hoveredButton, setHoveredButton] = useState(null);
+	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
 		const handleResize = () => {
+			const isMobileView = window.innerWidth <= 768;
+			setIsMobile(isMobileView);
+			
 			if (window.innerWidth <= 480) {
 				setStyles({
 					logoWidth: "180px",
-					subtitleSize: "20px",
+					subtitleSize: "15px", // Reduced font size for small mobile
 					buttonPadding: "8px 24px",
 					buttonFontSize: "16px",
 					spacing: "15px"
@@ -27,7 +31,7 @@ function HeroContent() {
 			} else if (window.innerWidth <= 768) {
 				setStyles({
 					logoWidth: "220px",
-					subtitleSize: "24px",
+					subtitleSize: "16px", // Reduced font size for hero text
 					buttonPadding: "9px 26px",
 					buttonFontSize: "17px",
 					spacing: "20px"
@@ -108,12 +112,12 @@ function HeroContent() {
 					<div style={{ marginBottom: styles.spacing }}>
 						<h2 style={{
 							color: "#67162e",
-							fontSize: "25px",
+							fontSize: styles.subtitleSize,
 							fontFamily: "JustSans, sans-serif",
 							fontWeight: "300",
 							margin: "0 auto",
 							maxWidth: "700px",
-							lineHeight: "1.4",
+							lineHeight: isMobile ? "1.2" : "1.4", // Tighter line height on mobile
 							textAlign: "center"
 						}}>
 							{/* Exceptional catering services for every occasion */}
@@ -127,7 +131,7 @@ function HeroContent() {
 				<FadeInStaggerTwoChildren>
 					<div style={{
 						display: "flex",
-						gap: window.innerWidth <= 480 ? "15px" : "20px",
+						gap: isMobile ? "15px" : "20px",
 						justifyContent: "center",
 						alignItems: "center",
 						flexWrap: "wrap"

@@ -153,42 +153,24 @@ function Services() {
 						letterSpacing: "0.5px",
 						textAlign: "center" 
 					}}>Professional Catering</h1>
-					<br />
-									<p style={{
-						fontFamily: "JustSans, sans-serif",
-								fontSize: window.innerWidth <= 480 ? "18px" : "20px",
-						color: "#f4e2b4",
-						maxWidth: "1000px",
-						margin: "0 auto",
-						lineHeight: window.innerWidth <= 480 ? "1.3" : "1.4",
-						fontWeight: "300",
-						letterSpacing: "0.02em",
-						textAlign: window.innerWidth <= 768 ? "center" : "left"
-					}}>
-						From intimate family gatherings to large corporate and institutional events, our professional catering services bring the same commitment to quality and excellence that has made us a trusted name in the region for over three decades.
-					</p>
-					<br />
 					<p style={{
 						fontFamily: "JustSans, sans-serif",
-								fontSize: window.innerWidth <= 480 ? "18px" : "20px",
-						color: "#f4e2b4",
+						fontSize: window.innerWidth <= 768 ? "14px" : "18px",
+						lineHeight: window.innerWidth <= 768 ? "1.6" : "1.5",
+						color: "rgb(244, 226, 180)",
+						margin: window.innerWidth <= 768 ? "6px auto" : "0px auto",
+						opacity: "1",
+						paddingRight: window.innerWidth <= 768 ? "33px" : "0px",
+						paddingLeft: window.innerWidth <= 768 ? "33px" : "0px",
+						paddingTop: window.innerWidth <= 768 ? "10px" : "0px",
 						maxWidth: "1000px",
-						margin: "0 auto",
-						lineHeight: window.innerWidth <= 480 ? "1.3" : "1.4",
 						fontWeight: "300",
 						letterSpacing: "0.02em",
-						textAlign: window.innerWidth <= 768 ? "center" : "left"
+						textAlign: "center",
+						wordSpacing: "normal",
+						whiteSpace: "normal"
 					}}>
-						Catering to a wide range of clients and occasions, offering 
-						<span style={{ 
-							color: "#f4e2b4",
-							fontWeight: "400"
-						}}> flexible plans </span> 
-						and 
-						<span style={{ 
-							color: "#f4e2b4",
-							fontWeight: "400"
-						}}> scalable solutions</span>
+						We provide professional catering services for all occasions, from intimate family gatherings to large corporate and institutional events. Our commitment to quality and excellence has made us a trusted name in the region for over three decades.
 					</p>
 	
 				</div>
@@ -205,7 +187,7 @@ function Services() {
 							<FadeInStaggerTwo 
 								key={service.id} 
 								index={index} 
-								className={window.innerWidth <= 480 ? "col-12" : "col-xl-4 col-lg-6 col-md-6"}
+								className={window.innerWidth <= 768 ? "col-6" : "col-xl-4 col-lg-6 col-md-6"}
 							>
 								<ServiceCard service={service} index={index} />
 							</FadeInStaggerTwo>

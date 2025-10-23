@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import serviceImage from "../../../assets/images/service/service-image.jpg";
 import serviceImage1 from "../../../assets/images/service/service-image1.png";
 import serviceImage2 from "../../../assets/images/service/service-image2.png";
@@ -8,6 +8,17 @@ import serviceImage5 from "../../../assets/images/service/service-image5.png";
 import serviceImage6 from "../../../assets/images/service/service-image6.png";
 function ServiceCard({ service: { title, description, iconClass }, index }) {
 	const [isHovered, setIsHovered] = useState(false);
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const checkMobile = () => {
+			setIsMobile(window.innerWidth <= 768);
+		};
+		checkMobile();
+		window.addEventListener('resize', checkMobile);
+		return () => window.removeEventListener('resize', checkMobile);
+	}, []);
+
     // Alternate card themes to match page (magenta and beige)
     const backgroundColor = index % 2 === 0 ? "#67162e" : "#fffbe6";
     const textColor = index % 2 === 0 ? "#f4e2b4" : "#67162e";
@@ -36,21 +47,16 @@ function ServiceCard({ service: { title, description, iconClass }, index }) {
 			onMouseLeave={() => setIsHovered(false)}
 			onClick={() => setIsHovered(!isHovered)} // Added for mobile touch
 			style={{
-				padding: "40px 30px",
+				padding: isMobile ? "20px 15px" : "40px 30px",
 				backgroundColor: backgroundColor,
-                height: "280px",
+                height: isMobile ? "140px" : "280px",
 				position: "relative",
 				overflow: "hidden",
-				borderRadius: "25px",
+				borderRadius: isMobile ? "15px" : "25px",
 				boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
 				cursor: "pointer",
 				transition: "all 0.4s ease",
-				"@media (max-width: 768px)": {
-					height: "160px",
-					padding: "20px 15px",
-					borderRadius: "15px",
-					marginBottom: "10px"
-				}
+				marginBottom: isMobile ? "10px" : "0"
 			}}
 		>
 			{/* Background Image */}
@@ -94,18 +100,13 @@ function ServiceCard({ service: { title, description, iconClass }, index }) {
 			}}>
                 <h3 style={{
                     color: isHovered ? "#f4e2b4" : textColor,
-                    fontSize: "22px",
+                    fontSize: isMobile ? "16px" : "22px",
                     fontWeight: 600,
-                    marginBottom: isHovered ? "16px" : 0,
+                    marginBottom: isHovered ? (isMobile ? "8px" : "16px") : 0,
                     fontFamily: "Mondia, serif",
-                    lineHeight: "1.3",
+                    lineHeight: isMobile ? "1.2" : "1.3",
                     transition: "all 0.4s ease",
-                    textAlign: "center",
-                    "@media (max-width: 768px)": {
-                        fontSize: "18px",
-                        lineHeight: "1.2",
-                        marginBottom: isHovered ? "10px" : 0
-                    }
+                    textAlign: "center"
                 }}>
 					{title}
 				</h3>

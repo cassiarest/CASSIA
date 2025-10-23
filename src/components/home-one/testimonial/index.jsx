@@ -115,7 +115,7 @@ function Testimonial() {
 
 	const getCardTextStyle = (index) => ({
 		fontFamily: "JustSans, sans-serif",
-		fontSize: "16px",
+		fontSize: isMobile ? "15px" : "16px",
 		lineHeight: "1.8",
 		color: index % 2 === 0 ? "#ffffff" : "#67162e",
 		opacity: 0.9,

@@ -84,7 +84,7 @@ function About() {
 		marginBottom: "20px",
 		margin: "0 0 20px 0",
 		padding: "0",
-		textAlign: isMobile ? "center" : "left",
+		textAlign: "center",
 		fontWeight: "400"
 	};
 
@@ -95,28 +95,28 @@ function About() {
 		marginBottom: "20px",
 		margin: "0 0 20px 0",
 		padding: "0",
-		textAlign: isMobile ? "center" : "left",
+		textAlign: "center",
 		fontWeight: "400"
 	};
 
 	const missionTextStyle = {
 		color: "#fffbe6",
 		fontFamily: "JustSans, sans-serif",
-		fontSize: isMobile ? "17px" : "19px",
+		fontSize: isMobile ? "15px" : "17px",
 		lineHeight: isMobile ? "1.6" : "1.8",
 		margin: "0",
 		padding: "0",
-		textAlign: isMobile ? "center" : "left"
+		textAlign: "left"
 	};
 
 	const visionTextStyle = {
 		color: "#67162e",
 		fontFamily: "JustSans, sans-serif",
-		fontSize: isMobile ? "17px" : "19px",
+		fontSize: isMobile ? "15px" : "17px",
 		lineHeight: isMobile ? "1.6" : "1.8",
 		margin: "0",
 		padding: "0",
-		textAlign: isMobile ? "center" : "left"
+		textAlign: "left"
 	};
 
 	return (
@@ -139,14 +139,12 @@ function About() {
 							}}
 						>
 							<h2 style={{
-								...missionTitleStyle,
-								textAlign: "left"
+								...missionTitleStyle
 							}}>
 								Our Mission 
 							</h2>
 							<p style={{
-								...missionTextStyle,
-								textAlign: "left"
+								...missionTextStyle
 							}}>
 								At Cassia, our mission is simple—serve great food, made with care, in a way that makes every event feel special. We focus on quality, hygiene, and flavor while staying true to our roots and always putting our clients first.
 							</p>
@@ -165,14 +163,12 @@ function About() {
 							}}
 						>
 							<h2 style={{
-								...visionTitleStyle,
-								textAlign: "left"
+								...visionTitleStyle
 							}}>
 								Our Vision
 							</h2>
 							<p style={{
-								...visionTextStyle,
-								textAlign: "left"
+								...visionTextStyle
 							}}>
 								To be the UAE's most trusted name in large-scale catering—where tradition, quality, and innovation meet to create unforgettable food experiences for every occasion.
 							</p>

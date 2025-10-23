@@ -52,8 +52,9 @@ export default function Preloader() {
 			WebkitBackfaceVisibility: "hidden",
 			backfaceVisibility: "hidden"
 		}}>
+			{/* Hide loading animation on mobile, show only on desktop */}
 			<div style={{
-				display: "flex",
+				display: window.innerWidth <= 768 ? "none" : "flex",
 				gap: isSmallScreen ? "8px" : "15px",
 				alignItems: "center",
 				justifyContent: "center",

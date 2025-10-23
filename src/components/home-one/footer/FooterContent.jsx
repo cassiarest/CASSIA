@@ -9,26 +9,6 @@ function FooterContent() {
 			color: '#f4e2b4',
 			padding: '20px 0'
 		}}>
-			<h2 style={{
-				fontFamily: 'Mondia, serif',
-				fontSize: '48px',
-				marginBottom: '30px',
-				color: '#f4e2b4',
-				lineHeight: '1.2'
-			}}>
-				Ready to get cooking?
-			</h2>
-			<p style={{
-				fontFamily: 'JustSans, sans-serif',
-				fontSize: '18px',
-				marginBottom: '40px',
-				color: '#f4e2b4',
-				lineHeight: '1.6',
-				maxWidth: '500px'
-			}}>
-				For us to understand your need, Send us a message 
-			</p>
-			
 			<div style={{
 				marginBottom: '40px'
 			}}>
@@ -57,37 +37,6 @@ function FooterContent() {
 					<p style={{
 						fontFamily: 'JustSans, sans-serif',
 						fontSize: '16px',
-						marginBottom: '10px',
-						color: '#fffbe6'
-					}}>WhatsApp & Call:</p>
-					<a href="https://wa.me/971588244120" target="_blank" rel="noopener noreferrer" style={{
-						display: 'inline-block',
-						transition: 'transform 0.3s ease, color 0.3s ease',
-						textDecoration: 'none'
-					}} onMouseEnter={(e) => {
-						e.target.style.transform = 'scale(1.1)';
-						e.target.style.color = '#25D366';
-					}} onMouseLeave={(e) => {
-						e.target.style.transform = 'scale(1)';
-						e.target.style.color = '#f4e2b4';
-					}}>
-						<FontAwesomeIcon 
-							icon={faWhatsapp} 
-							style={{
-								fontSize: '32px',
-								color: '#f4e2b4',
-								transition: 'color 0.3s ease'
-							}}
-						/>
-					</a>
-				</div>
-				
-				<div style={{
-					marginBottom: '20px'
-				}}>
-					<p style={{
-						fontFamily: 'JustSans, sans-serif',
-						fontSize: '16px',
 						marginBottom: '5px',
 						color: '#fffbe6'
 					}}>Visit Us:</p>
@@ -101,20 +50,9 @@ function FooterContent() {
 					}}>
 						Building No. 1, Khalifa Bin Zayed City
 						<br />
-						Al Daith Street, Ras Al Khaimah,
+						Al Daith Street, Ras Al Khaimah,
 						UAE
 					</p>
-				</div>
-				
-				<div>
-					<a href="mailto:cassiasocial1@gmail.com" style={{
-						color: '#f4e2b4',
-						fontSize: '24px',
-						textDecoration: 'none',
-						transition: 'color 0.3s ease'
-					}} aria-label="Email">
-						<i className="icon-message"></i>
-					</a>
 				</div>
 			</div>
 
@@ -126,13 +64,14 @@ function FooterContent() {
 					fontSize: '16px',
 					marginBottom: '15px',
 					color: '#fffbe6'
-				}}>Follow Us:</p>
+				}}>Contact Us:</p>
 				<ul style={{
 					display: 'flex',
 					gap: '20px',
 					listStyle: 'none',
 					padding: 0,
-					margin: 0
+					margin: 0,
+					alignItems: 'center'
 				}}>
 					<li>
 						<a href="https://www.instagram.com/cassiasocial1/?utm_source=ig_web_button_share_sheet" target="_blank" style={{
@@ -141,6 +80,38 @@ function FooterContent() {
 							transition: 'color 0.3s ease'
 						}}>
 							<i className="icon-instagram"></i>
+						</a>
+					</li>
+					<li>
+						<a href="mailto:cassiasocial1@gmail.com" style={{
+							color: '#f4e2b4',
+							fontSize: '24px',
+							textDecoration: 'none',
+							transition: 'color 0.3s ease'
+						}} aria-label="Email">
+							<i className="icon-message"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://wa.me/971588244120" target="_blank" rel="noopener noreferrer" style={{
+							display: 'inline-block',
+							transition: 'transform 0.3s ease, color 0.3s ease',
+							textDecoration: 'none'
+						}} onMouseEnter={(e) => {
+							e.target.style.transform = 'scale(1.1)';
+							e.target.style.color = '#25D366';
+						}} onMouseLeave={(e) => {
+							e.target.style.transform = 'scale(1)';
+							e.target.style.color = '#f4e2b4';
+						}}>
+							<FontAwesomeIcon 
+								icon={faWhatsapp} 
+								style={{
+									fontSize: '24px',
+									color: '#f4e2b4',
+									transition: 'color 0.3s ease'
+								}}
+							/>
 						</a>
 					</li>
 				</ul>
