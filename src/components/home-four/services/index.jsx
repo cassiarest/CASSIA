@@ -147,11 +147,11 @@ function Services() {
 						fontSize: window.innerWidth <= 480 ? "28px" : "36px",
 						color: "#f4e2b4",
 						maxWidth: "1000px",
-						margin: "0 auto",
+						margin: window.innerWidth <= 768 ? "0" : "0 auto",
 						lineHeight: "1.2",
 						fontWeight: 600,
 						letterSpacing: "0.5px",
-						textAlign: "center",
+						textAlign: window.innerWidth <= 768 ? "left" : "center",
 						paddingBottom: "15px"
 					}}>Professional Catering</h1>
 					<p style={{
@@ -160,8 +160,8 @@ function Services() {
 						lineHeight: window.innerWidth <= 480 ? "1.4" : window.innerWidth <= 768 ? "1.5" : "1.7",
 						color: "rgb(244, 226, 180)",
 						maxWidth: "77%",
-						margin: "0px auto",
-						textAlign: "justify",
+						margin: window.innerWidth <= 768 ? "0" : "0px auto",
+						textAlign: window.innerWidth <= 768 ? "left" : "justify",
 						fontWeight: "400",
 						letterSpacing: "0.3px",
 						opacity: 1,
