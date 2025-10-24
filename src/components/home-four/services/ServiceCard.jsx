@@ -47,7 +47,7 @@ function ServiceCard({ service: { title, description, iconClass }, index }) {
 			onMouseLeave={() => setIsHovered(false)}
 			onClick={() => setIsHovered(!isHovered)} // Added for mobile touch
 			style={{
-				padding: isMobile ? "20px 15px" : "40px 30px",
+				padding: isMobile ? "20px 10px" : "40px 30px",
 				backgroundColor: backgroundColor,
                 height: isMobile ? "140px" : "280px",
 				position: "relative",
@@ -56,7 +56,7 @@ function ServiceCard({ service: { title, description, iconClass }, index }) {
 				boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
 				cursor: "pointer",
 				transition: "all 0.4s ease",
-				marginBottom: isMobile ? "10px" : "0"
+				marginBottom: isMobile ? "0" : "0"
 			}}
 		>
 			{/* Background Image */}
@@ -100,7 +100,7 @@ function ServiceCard({ service: { title, description, iconClass }, index }) {
 			}}>
                 <h3 style={{
                     color: isHovered ? "#f4e2b4" : textColor,
-                    fontSize: isMobile ? "16px" : "22px",
+                    fontSize: isMobile ? "12px" : "22px",
                     fontWeight: 600,
                     marginBottom: isHovered ? (isMobile ? "8px" : "16px") : 0,
                     fontFamily: "Mondia, serif",

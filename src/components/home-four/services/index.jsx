@@ -151,24 +151,21 @@ function Services() {
 						lineHeight: "1.2",
 						fontWeight: 600,
 						letterSpacing: "0.5px",
-						textAlign: "center" 
+						textAlign: "center",
+						paddingBottom: "15px"
 					}}>Professional Catering</h1>
 					<p style={{
-						fontFamily: "JustSans, sans-serif",
-						fontSize: window.innerWidth <= 768 ? "14px" : "18px",
-						lineHeight: window.innerWidth <= 768 ? "1.6" : "1.5",
+						fontFamily: "Mondia, sans-serif",
+						fontSize: window.innerWidth <= 480 ? "14px" : window.innerWidth <= 768 ? "13px" : "17px",
+						lineHeight: window.innerWidth <= 480 ? "1.4" : window.innerWidth <= 768 ? "1.5" : "1.7",
 						color: "rgb(244, 226, 180)",
-						margin: window.innerWidth <= 768 ? "6px auto" : "0px auto",
-						opacity: "1",
-						paddingRight: window.innerWidth <= 768 ? "33px" : "0px",
-						paddingLeft: window.innerWidth <= 768 ? "33px" : "0px",
-						paddingTop: window.innerWidth <= 768 ? "10px" : "0px",
-						maxWidth: "1000px",
-						fontWeight: "300",
-						letterSpacing: "0.02em",
-						textAlign: "center",
-						wordSpacing: "normal",
-						whiteSpace: "normal"
+						maxWidth: "77%",
+						margin: "0px auto",
+						textAlign: "justify",
+						fontWeight: "400",
+						letterSpacing: "0.3px",
+						opacity: 1,
+						padding: 0
 					}}>
 						We provide professional catering services for all occasions, from intimate family gatherings to large corporate and institutional events. Our commitment to quality and excellence has made us a trusted name in the region for over three decades.
 					</p>
@@ -176,11 +173,11 @@ function Services() {
 				</div>
 
 				<div style={{ 
-					padding: styles.containerPadding,
+					padding: window.innerWidth <= 480 ? "0" : styles.containerPadding,
 					borderRadius: styles.borderRadius,
 					backgroundColor: "transparent",
 					// boxShadow: "0 30px 60px rgba(0, 0, 0, 0.25)",
-					margin: window.innerWidth <= 480 ? "0 10px" : "0"
+					margin: window.innerWidth <= 480 ? "0" : "0"
 				}}>
 					<div className="row g-2">
 						{serviceData.map((service, index) => (
