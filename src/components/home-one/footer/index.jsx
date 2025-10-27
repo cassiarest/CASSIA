@@ -7,17 +7,11 @@ function Footer() {
 		<footer id="contact" style={{
 			backgroundColor: "#67162e",
 			padding: "60px 0 30px",
-			color: "#f4e2b4",
-			"@media (max-width: 768px)": {
-				padding: "40px 0 20px"
-			}
+			color: "#f4e2b4"
 		}}>
 			<div className="container">
 				<div style={{
-					paddingBottom: "40px",
-					"@media (max-width: 768px)": {
-						paddingBottom: "30px"
-					}
+					paddingBottom: "40px"
 				}}>
 					<div className="row g-4 align-items-start">
 						<div className="col-lg-7 order-1 order-lg-1">
@@ -48,10 +42,7 @@ function Footer() {
 							<div style={{
 								backgroundColor: "#fffbe6",
 								padding: "40px",
-								borderRadius: "25px",
-								"@media (max-width: 768px)": {
-									padding: "30px 20px"
-								}
+								borderRadius: "25px"
 							}}>
 								<MessageForm />
 							</div>
@@ -63,10 +54,7 @@ function Footer() {
 				</div>
 				<div style={{
 					borderTop: "1px solid rgba(244, 226, 180, 0.2)",
-					paddingTop: "30px",
-					"@media (max-width: 768px)": {
-						paddingTop: "20px"
-					}
+					paddingTop: "30px"
 				}}>
 					<div className="row">
 						<FooterBottom />

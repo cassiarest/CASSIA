@@ -29,7 +29,7 @@ function FooterBottom() {
 			</div>
 			<div className="col-lg-6 d-flex align-items-center">
 				<div className="aximo-copywright seven">
-					<p> &copy; Copyright 2024, All Rights Reserved by Mthemeus</p>
+					<p> &copy; Copyright 2025, All Rights Reserved by Mthemeus</p>
 				</div>
 			</div>
 		</div>

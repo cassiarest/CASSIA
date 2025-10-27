@@ -1,1 +1,4 @@
 /*    /index.html   200
+
+# Redirect www to non-www
+https://www.cassia.catering/*    https://cassia.catering/:splat    301!

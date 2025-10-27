@@ -1,7 +1,7 @@
 function FooterCopyright() {
 	return (
 		<div className="aximo-copywright">
-			<p>&copy; Copyright 2024, All Rights Reserved by Mthemeus</p>
+			<p>&copy; Copyright 2025, All Rights Reserved by Mthemeus</p>
 		</div>
 	);
 }

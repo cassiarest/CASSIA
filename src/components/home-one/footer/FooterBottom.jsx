@@ -5,11 +5,7 @@ function FooterBottom() {
 		<>
 			<div className="col-lg-6">
 				<div style={{
-					padding: "20px 0",
-					"@media (max-width: 768px)": {
-						padding: "10px 0",
-						textAlign: "center"
-					}
+					padding: "20px 0"
 				}}>
 					<a href="/" style={{
 						display: "inline-block"
@@ -19,10 +15,7 @@ function FooterBottom() {
 							alt="Cassia Fine Dine Catering" 
 							style={{
 								height: "40px",
-								filter: "brightness(0) invert(1) sepia(0.3) saturate(1.5) hue-rotate(-10deg)",
-								"@media (max-width: 768px)": {
-									height: "35px"
-								}
+								filter: "brightness(0) invert(1) sepia(0.3) saturate(1.5) hue-rotate(-10deg)"
 							}}
 						/>
 					</a>
@@ -31,23 +24,16 @@ function FooterBottom() {
 			<div className="col-lg-6">
 				<div style={{
 					textAlign: "right",
-					padding: "20px 0",
-					"@media (max-width: 768px)": {
-						textAlign: "center",
-						padding: "10px 0"
-					}
+					padding: "20px 0"
 				}}>
 					<p style={{
 						margin: 0,
 						color: "#f4e2b4",
 						fontFamily: "JustSans, sans-serif",
 						fontSize: "16px",
-						opacity: 0.9,
-						"@media (max-width: 768px)": {
-							fontSize: "14px"
-						}
+						opacity: 0.9
 					}}>
-						&copy; Copyright 2024, All Rights Reserved by Cassia Fine Dine Catering
+						&copy; Copyright 2025, All Rights Reserved by Cassia Fine Dine Catering
 					</p>
 				</div>
 			</div>

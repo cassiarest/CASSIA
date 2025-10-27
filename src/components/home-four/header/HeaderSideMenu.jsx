@@ -65,7 +65,7 @@ function HeaderSideMenu({ showSideMenu, setShowSideMenu }) {
 						</ul>
 					</FadeInStaggerTwoChildren>
 					<FadeInStaggerTwoChildren className="aximo-copywright4 light">
-						<p>© Copyright 2024, All Rights Reserved by Mthemeus</p>
+						<p>© Copyright 2025, All Rights Reserved by Mthemeus</p>
 					</FadeInStaggerTwoChildren>
 				</FadeInStaggerTwo>
 				<span className="aximo-sidemenu-close" onClick={() => setShowSideMenu(!showSideMenu)}>

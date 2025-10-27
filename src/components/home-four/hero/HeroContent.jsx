@@ -107,10 +107,10 @@ function HeroContent() {
 					</div>
 				</FadeInStaggerTwoChildren>
 
-				{/* Subtitle */}
+				{/* Main Heading H1 */}
 				<FadeInStaggerTwoChildren>
 					<div style={{ marginBottom: styles.spacing }}>
-						<h2 style={{
+						<h1 style={{
 							color: "#67162e",
 							fontSize: styles.subtitleSize,
 							fontFamily: "JustSans, sans-serif",
@@ -120,10 +120,8 @@ function HeroContent() {
 							lineHeight: isMobile ? "1.2" : "1.4", // Tighter line height on mobile
 							textAlign: "center"
 						}}>
-							{/* Exceptional catering services for every occasion */}
-							Elevate your gatherings with Cassia's exquisite restaurant dining and bespoke catering to the guests of UAE.
-
-						</h2>
+							Restaurant dining and bespoke catering to the guests of UAE.
+						</h1>
 					</div>
 				</FadeInStaggerTwoChildren>
 

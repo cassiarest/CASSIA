@@ -8,6 +8,7 @@ function HeaderLogo() {
     const [logoWidth, setLogoWidth] = useState("140px");
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+	const [isSmall, setIsSmall] = useState(false);
 	const location = useLocation();
 
 	// Check if we're on the Menu route
@@ -16,10 +17,15 @@ function HeaderLogo() {
 	useEffect(() => {
         const handleResize = () => {
 			const w = window.innerWidth;
-			if (w <= 768) {
+			if (w <= 480) {
+				setLogoWidth("80px");
+				setIsSmall(true);
+			} else if (w <= 768) {
 				setLogoWidth("97px");
+				setIsSmall(false);
 			} else {
 				setLogoWidth("188px");
+				setIsSmall(false);
 			}
             setIsMobile(w <= 768);
 		};
@@ -44,7 +50,7 @@ function HeaderLogo() {
             alignItems: "center", 
             flexShrink: 0,
             padding: "0",
-            marginRight: isMobile ? "8px" : "35px"
+            marginRight: isSmall ? "4px" : (isMobile ? "8px" : "35px")
         }}>
 			<Link to="/" style={{
 				display: "flex",

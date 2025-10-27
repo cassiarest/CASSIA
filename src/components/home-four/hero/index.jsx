@@ -12,7 +12,7 @@ function Hero() {
 			position: 'relative',
 			overflow: 'hidden',
 			height: '100vh',
-			width: '100vw',
+			width: '100%',
 			margin: '0',
 			padding: '0'
 		}}>
@@ -20,7 +20,7 @@ function Hero() {
 				position: 'relative', 
 				zIndex: 2,
 				height: '100vh',
-				width: '100vw',
+				width: '100%',
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',

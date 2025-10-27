@@ -2,3 +2,34 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+# Handle www to non-www redirect
+[[redirects]]
+  from = "https://www.cassia.catering/*"
+  to = "https://cassia.catering/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.cassia-*.netlify.app/*"
+  to = "https://cassia.catering/:splat"
+  status = 301
+  force = true
+
+# Enable compression (gzip/Brotli)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

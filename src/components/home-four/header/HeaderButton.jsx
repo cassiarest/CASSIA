@@ -10,24 +10,29 @@ function HeaderButton() {
 	});
 
 	const [isScrolled, setIsScrolled] = useState(false);
+	const [buttonText, setButtonText] = useState("Get a Quote");
 
 	useEffect(() => {
 		const handleResize = () => {
 			const w = window.innerWidth;
 			if (w <= 360) {
-				setButtonStyle({ padding: "4px 10px", fontSize: "12px", borderRadius: "10px", visible: false });
+				setButtonStyle({ padding: "5px 8px", fontSize: "10px", borderRadius: "10px", visible: true });
+				setButtonText("Get a Quote");
 			} else if (w <= 480) {
-				setButtonStyle({ padding: "5px 12px", fontSize: "13px", borderRadius: "12px", visible: false });
+				setButtonStyle({ padding: "6px 10px", fontSize: "11px", borderRadius: "12px", visible: true });
+				setButtonText("Get a Quote");
 			} else if (w <= 768) {
-				setButtonStyle({ padding: "6px 16px", fontSize: "14px", borderRadius: "14px", visible: true });
+				setButtonStyle({ padding: "7px 14px", fontSize: "13px", borderRadius: "14px", visible: true });
+				setButtonText("Get a Quote");
 			} else {
 				setButtonStyle({ padding: "7px 20px", fontSize: "16px", borderRadius: "20px", visible: true });
+				setButtonText("Get a Quote");
 			}
 		};
 
 		const handleScroll = () => {
 			const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-			const scrolled = scrollTop > 100;
+			const scrolled = scrollTop > 50;
 			setIsScrolled(scrolled);
 		};
 
@@ -59,8 +64,9 @@ function HeaderButton() {
 		<div className="header-btn" style={{
 			display: buttonStyle.visible ? "flex" : "none",
 			alignItems: "center",
-			flexShrink: 0,
-			marginLeft: "12px"
+			flexShrink: 1,
+			marginLeft: "8px",
+			minWidth: 0
 		}}>
 			<button
 				// className="aximo-default-btn aximo-header-btn outline-btn pill barger-menu"
@@ -107,7 +113,7 @@ function HeaderButton() {
 				}}
 			>
 				{/* <img src={BargerMenuImg} alt="BargerMenuImg" /> */}
-				Get a Quote 	
+				{buttonText}
 			</button>
 		</div>
 	);
